@@ -22,6 +22,10 @@ class OutputView {
       Console.print(MESSAGE.HINT.NOTHING);
     }
   }
+
+  static printWin() {
+    Console.print(MESSAGE.WIN);
+  }
 }
 
 export default OutputView;

@@ -2,23 +2,32 @@ import generateSecretNumbers from "./utils/generateSecretNumbers.js";
 import OutputView from "./view/OutputView.js";
 import InputView from "./view/InputView.js";
 import compareNumbers from "./utils/compareNumbers.js";
+import NUMBERS from "./constants/numbers.js";
 
 class Game {
   #secretNumbers;
   #scoreBoard;
-  #isPlaing;
+  #isPlaying;
 
   constructor() {
     this.#secretNumbers = generateSecretNumbers();
-    this.#isPlaing = true;
+    this.#isPlaying = true;
   }
 
   async playBall() {
-    // console.log(this.#secretNumbers);
+    console.log(this.#secretNumbers);
     OutputView.printStartMessage();
     const userInput = await InputView.getUserNumbers();
     this.#scoreBoard = compareNumbers(userInput, this.#secretNumbers);
     OutputView.printHint(this.#scoreBoard);
+    this.endGame(this.#scoreBoard);
+  }
+
+  endGame(scoreBoard) {
+    if (scoreBoard.strike === NUMBERS.WIN) {
+      OutputView.printWin();
+      this.#isPlaying = false;
+    }
   }
 }
 
