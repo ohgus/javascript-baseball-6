@@ -1,5 +1,6 @@
 import generateSecretNumbers from "./utils/generateSecretNumbers.js";
 import OutputView from "./view/OutputView.js";
+import InputView from "./view/InputView.js";
 
 class Game {
   #secretNumbers;
@@ -17,6 +18,7 @@ class Game {
 
   async playBall() {
     OutputView.printStartMessage();
+    const userInput = await InputView.getUserNumbers();
   }
 }
 
