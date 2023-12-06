@@ -1,5 +1,6 @@
 import { Console } from "@woowacourse/mission-utils";
 import MESSAGE from "../constants/messages.js";
+import Validator from "../utils/validator.js";
 
 class InputView {
   static async readUserNumbers() {
@@ -8,8 +9,14 @@ class InputView {
   }
 
   static async getUserNumbers() {
-    const numbers = await this.readUserNumbers();
-    return numbers;
+    try {
+      const numbers = await this.readUserNumbers();
+      Validator.validateGameNumbers(numbers);
+      return numbers;
+    } catch (e) {
+      Console.print(e.message);
+      return await this.getUserNumbers();
+    }
   }
 }
 

@@ -8,6 +8,7 @@ const NUMBERS = Object.freeze({
     AGREE: 1,
     DISAGREE: 2,
   },
+  NOT_ALLOWED: 0,
 });
 
 export default NUMBERS;
