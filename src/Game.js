@@ -14,9 +14,11 @@ class Game {
   }
 
   async playBall() {
+    // console.log(this.#secretNumbers);
     OutputView.printStartMessage();
     const userInput = await InputView.getUserNumbers();
     this.#scoreBoard = compareNumbers(userInput, this.#secretNumbers);
+    OutputView.printHint(this.#scoreBoard);
   }
 }
 
