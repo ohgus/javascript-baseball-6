@@ -1,4 +1,5 @@
 import generateSecretNumbers from "./utils/generateSecretNumbers.js";
+import OutputView from "./view/OutputView.js";
 
 class Game {
   #secretNumbers;
@@ -13,4 +14,10 @@ class Game {
     };
     this.#isPlaing = true;
   }
+
+  async playBall() {
+    OutputView.printStartMessage();
+  }
 }
+
+export default Game;

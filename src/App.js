@@ -1,5 +1,17 @@
+import Game from "./Game.js";
+
 class App {
-  async play() {}
+  #baseballGame;
+
+  constructor() {
+    this.#baseballGame = new Game();
+  }
+  async play() {
+    this.#baseballGame.playBall();
+  }
 }
 
 export default App;
+
+const app = new App();
+app.play();
