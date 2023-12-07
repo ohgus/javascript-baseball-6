@@ -18,6 +18,22 @@ class InputView {
       return await this.getUserNumbers();
     }
   }
+
+  static async readRestart() {
+    const userInput = await Console.readLineAsync(MESSAGE.RESTART);
+    return userInput;
+  }
+
+  static async getRestartInput() {
+    try {
+      const num = await this.readRestart();
+      Validator.validateRestart(num);
+      return +num;
+    } catch (e) {
+      Console.print(e.message);
+      return await this.getRestartInput();
+    }
+  }
 }
 
 export default InputView;
