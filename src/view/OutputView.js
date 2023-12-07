@@ -26,6 +26,10 @@ class OutputView {
   static printWin() {
     Console.print(MESSAGE.WIN);
   }
+
+  static printEndGame() {
+    Console.print(MESSAGE.END_GAME);
+  }
 }
 
 export default OutputView;

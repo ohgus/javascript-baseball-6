@@ -40,6 +40,7 @@ class Game {
       this.#isPlaying = true;
     } else if (num === NUMBERS.RESTART.DISAGREE) {
       this.#isPlaying = false;
+      OutputView.printEndGame();
     }
   }
 }
